@@ -55,8 +55,26 @@
             <div id="contenedorColores" class="paleta"></div>
         </section>
 
+        <section id="todo">
+        <h2>Lista de Tareas</h2>
 
+        <div class="todo-inputs">
+            <input type="text" id="nuevaTarea" placeholder="Escribe una tarea" onkeydown="if(event.key==='Enter') agregarTarea()">
+            <button class="boton" onclick="agregarTarea()">Añadir Tarea</button>
+        </div>
 
+        <ul id="listaTareas" class="todo-lista"></ul>
+        </section>
+       <section id="episodio">
+            <h2>Buscar Episodio (The Simpsons API)</h2>
+            <div class="episodio-controls">
+                <label for="episodioId">ID de episodio:</label>
+                <input type="number" id="episodioId" value="1" min="1">
+                <button class="boton" onclick="mostrarEpisodioPorId()">Mostrar Episodio</button>
+            </div>
+            <div id="loader-ep" style="display:none; text-align:center; font-weight:bold; margin:10px 0;">Cargando...</div>
+            <div id="infoEpisodio" class="resultado-api"></div>
+        </section>
         <section id="contacto">
             <h2>Contacto</h2>
             <form id="formulario-contacto">
