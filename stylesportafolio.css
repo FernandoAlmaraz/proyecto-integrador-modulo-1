@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px; /* Relleno interior */
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* Modelo de caja en las tarjetas de proyecto */
+.tarjeta-proyecto {
+    background-color: #fff;
+    border: 1px solid #ddd;  /* Borde */
+    padding: 15px;           /* Relleno */
+    margin-bottom: 20px;     /* Margen exterior para separar las tarjetas */
+}
+#proyectos {
+    display: grid; /* Convierte la sección en un contenedor flexible */
+    justify-content: space-around; /* Distribuye el espacio entre los proyectos */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+}
+
+.tarjeta-proyecto {
+    /* ... estilos anteriores ... */
+    width: 45%; /* Cada tarjeta ocupa un 45% del ancho en pantallas grandes */
+}   
+
+/* Añadir al final de style.css */
+@media (max-width: 768px) {
+    .tarjeta-proyecto {
+        width: 90%; /* En pantallas de 768px o menos, la tarjeta ocupa el 90% */
+    }
+
+    nav ul {
+        flex-direction: column; /* Apila los links de navegación */
+        padding: 0;
+    }
+}
