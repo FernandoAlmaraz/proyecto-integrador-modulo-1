@@ -163,3 +163,45 @@ textarea:focus {
   66% { content: "•••"; }
   100% { content: "•"; }
 }
+
+
+/* === Paleta de colores === */
+#paleta {
+  margin-top: 40px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.paleta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.color-item {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  user-select: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.color-item:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.color-item.copiado {
+  outline: 3px solid #10b981;
+  opacity: 0.85;
+}
+

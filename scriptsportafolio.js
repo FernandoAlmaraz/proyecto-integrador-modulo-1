@@ -22,3 +22,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+function generarColorHex() {
+  const letras = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letras[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function generarPaleta() {
+  const contenedor = document.getElementById("contenedorColores");
+  contenedor.innerHTML = "";
+
+  for (let i = 0; i < 5; i++) {
+    const color = generarColorHex();
+    const div = document.createElement("div");
+    div.className = "color-item";
+    div.style.backgroundColor = color;
+    div.textContent = color;
+    div.onclick = () => {
+      navigator.clipboard.writeText(color).catch(() => {});
+      alert(`Color copiado: ${color}`);
+    };
+    contenedor.appendChild(div);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btnPaleta = document.getElementById("btnPaleta");
+  if (btnPaleta) btnPaleta.addEventListener("click", generarPaleta);
+});
