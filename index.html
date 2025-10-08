@@ -2,100 +2,64 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Funciones JavaScript - Ejemplos Interactivos</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Fernando Almaraz</title>
+    <link rel="stylesheet" href="stylesportafolio.css">
 </head>
+
 <body>
-    <nav class="menu">
-        <button class="boton-menu active" onclick="cambiarSeccion('funciones')"> Funciones Básicas</button>
-        <button class="boton-menu" onclick="cambiarSeccion('api')">Ejemplos con API</button>
+    <header>
+        <h1>Fernando Almaraz</h1>
+        <p>Desarrollador Web Frontend</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
     </nav>
 
-   <!-- Sección Funciones Básicas -->
-   <section id="funciones" class="seccion active">
-    <h1>Ejemplos de Funciones JavaScript</h1>
-    
-    <div class="grid">
-        <!-- Ejemplo 1: Cuadrado -->
-        <div class="ejemplo">
-            <h3>1. Función Declarativa (Cuadrado)</h3>
-            <input type="number" id="numeroCuadrado" value="5">
-            <button class="boton" onclick="mostrarCuadrado()">Calcular cuadrado</button>
-            <div id="resultadoCuadrado" class="resultado"></div>
-        </div>
+    <main>
+        <section id="sobre-mi">
+            <h2>Sobre Mí</h2>
+            <p>Aquí va una breve descripción sobre ti, tus pasiones en la tecnología y lo que buscas profesionalmente.
+            </p>
+        </section>
 
-        <!-- Ejemplo 2: Potencia -->
-        <div class="ejemplo">
-            <h3>2. Función Expresiva (Potencia)</h3>
-            <input type="number" id="base" value="2" placeholder="Base">
-            <input type="number" id="exponente" value="3" placeholder="Exponente">
-            <button class="boton" onclick="mostrarPotencia()">Calcular potencia</button>
-            <div id="resultadoPotencia" class="resultado"></div>
-        </div>
+        <section id="proyectos">
+            <h2>Mis Proyectos</h2>
+            <article class="tarjeta-proyecto">
+                <h3>Proyecto 1</h3>
+                <p>Descripción del primer proyecto. Una aplicación increíble que resuelve un problema real.</p>
+            </article>
+            <article class="tarjeta-proyecto">
+                <h3>Proyecto 2</h3>
+                <p>Descripción del segundo proyecto. Una exploración de una nueva tecnología o framework.</p>
+            </article>
+            <article class="tarjeta-proyecto">
+                <h3>Ejercicios de JavaScript (interactivos)</h3>
+                <p>Funciones, uso de APIs, y más.</p>
+                <a href="ejercicios.html">Ver ejercicios</a>
+            </article>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form id="formulario-contacto">
+                <label for="email">Tu Email:</label>
+                <input type="email" id="email" required>
+                <button type="submit">Enviar</button>
+            </form>index
+            <p id="mensaje-feedback"></p>
+        </section>
 
-        <!-- Ejemplo 3: Dividir -->
-        <div class="ejemplo">
-            <h3>3. Arrow Function (División)</h3>
-            <input type="number" id="dividendo" value="10" placeholder="Dividendo">
-            <input type="number" id="divisor" value="2" placeholder="Divisor">
-            <button class="boton" onclick="mostrarDivision()">Realizar división</button>
-            <div id="resultadoDivision" class="resultado"></div>
-        </div>
+    </main>
 
-        <!-- Ejemplo 4: Hummus -->
-        <div class="ejemplo">
-            <h3>4. Función Anidada (Receta)</h3>
-            <button class="boton" onclick="prepararHummus()">Mostrar ingredientes</button>
-            <div id="resultadoHummus" class="resultado"></div>
-        </div>
+    <footer>
+        <p>&copy; 2025 - Fernando Almaraz</p>
+    </footer>
 
-        <!-- Ejemplo 5: Scope -->
-        <div class="ejemplo">
-            <h3>5. Alcance (Scope)</h3>
-            <button class="boton" onclick="probarScope()">Ejecutar prueba de scope</button>
-            <div id="resultadoScope" class="resultado"></div>
-        </div>
-
-        <!-- Ejemplo 6: Factorial -->
-        <div class="ejemplo">
-            <h3>6. Recursividad (Factorial)</h3>
-            <input type="number" id="numeroFactorial" value="5">
-            <button class="boton" onclick="calcularFactorial()">Calcular factorial</button>
-            <div id="resultadoFactorial" class="resultado"></div>
-        </div>
-    </div>
-    </section>
-   
-      <!-- Sección Ejemplos con API -->
-    <section id="api" class="seccion">
-        <div class="ejemplo-api">
-            <h2>Ejemplo 1: Obtener Personaje Aleatorio (Promesas)</h2>
-            <input type="number" id="personajeID" value="1" min="1">
-            <button class="boton" onclick="obtenerPersonajeAleatoria()">Buscar Personaje</button>
-            <div id="simpsonQuoteResult" class="resultado-api"></div>
-        </div>
-
-        <div class="ejemplo-api">
-            <h2>Ejemplo 2: Obtener Varios Personajes (Async/Await)</h2>
-            <input type="number" id="numCitas" value="5" min="1" max="10">
-            <button class="boton" onclick="obtenerVariasCitas()">Mostrar Personajes</button>
-            <div id="simpsonQuotesResult" class="resultado-api"></div>
-        </div>
-
-        <div class="ejemplo-api">
-            <h2>Ejemplo 3: Otro Personaje Aleatorio (Fetch + Then)</h2>
-            <button class="boton" onclick="otraCitaAleatoria()">Generar Otro Personaje</button>
-            <div id="randomSimpsonQuote" class="resultado-api"></div>
-        </div>
-
-        <div class="ejemplo-api">
-            <h2>Ejemplo 4: Buscar Personaje por Nombre (Async/Await)</h2>
-            <input type="text" id="simpsonCharacterName" placeholder="Nombre del Personaje" value="Homer">
-            <button class="boton" onclick="citaPorPersonaje()">Buscar Personaje</button>
-            <div id="simpsonCharacterResult" class="resultado-api"></div>
-        </div>
-    </section>
-
-    <script src="scripts.js"></script>
+     <script src="scriptsportafolio.js"></script>
 </body>
 </html>
