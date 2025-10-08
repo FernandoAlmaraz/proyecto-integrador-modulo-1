@@ -91,9 +91,16 @@ function cambiarSeccion(seccionId) {
     document.getElementById(seccionId).classList.add('active');
     event.target.classList.add('active');
 }
+function mostrarCargandoPorId(loaderId, mostrar = true) {
+  const el = document.getElementById(loaderId);
+  if (!el) return;
+  el.style.display = mostrar ? 'block' : 'none';
+}
+
 
 // Ejemplo 1: Obtener Personaje Aleatorio (Promesas)
 function obtenerPersonajeAleatoria() {
+    mostrarCargandoPorId('loader', true);
     const id = document.getElementById('personajeID').value;
     fetch(`https://thesimpsonsapi.com/api/characters/${id}`)
         .then(response => {
@@ -112,11 +119,13 @@ function obtenerPersonajeAleatoria() {
         })
         .catch(error => {
             document.getElementById('simpsonQuoteResult').innerHTML = `Error: ${error.message}`;
-        });
+        })
+        .finally(() => mostrarCargandoPorId('loader', false));
 }
 
 // Ejemplo 2: Obtener Varios Personajes (Async/Await)
 async function obtenerVariasCitas() {
+    mostrarCargandoPorId('loader2', true);
     const numCharacters = parseInt(document.getElementById('numCitas').value, 10);
 
     try {
@@ -158,10 +167,14 @@ async function obtenerVariasCitas() {
     } catch (error) {
         document.getElementById('simpsonQuotesResult').innerHTML = `Error: ${error.message}`;
     }
+    finally {
+        mostrarCargandoPorId('loader2', false);
+        }
 }
 
 // Ejemplo 3: Obtener Otro Personaje Aleatorio (Fetch + Then)
 function otraCitaAleatoria() {
+    mostrarCargandoPorId('loader3', true);
    fetch('https://thesimpsonsapi.com/api/characters')
         .then(response => {
             if (!response.ok) throw new Error('No se pudieron obtener los personajes');
@@ -183,11 +196,14 @@ function otraCitaAleatoria() {
         })
         .catch(error => {
             document.getElementById('randomSimpsonQuote').innerHTML = `Error: ${error.message}`;
-        });
+        })
+         .finally(() => mostrarCargandoPorId('loader3', false));
 }
 
 // Ejemplo 4: Buscar Personaje por Nombre (Async/Await)
 async function citaPorPersonaje() {
+    mostrarCargandoPorId('loader4', true);
+    
    const characterName = document.getElementById('simpsonCharacterName').value.trim().toLowerCase();
 
     try {
@@ -229,4 +245,7 @@ async function citaPorPersonaje() {
     } catch (error) {
         document.getElementById('simpsonCharacterResult').innerHTML = `Error: ${error.message}`;
     }
+    finally {
+    mostrarCargandoPorId('loader4', false); 
+  }
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Funciones JavaScript - Ejemplos Interactivos</title>
+    <link rel="stylesheet" href="estilos-globales.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -67,11 +68,15 @@
     </section>
    
       <!-- Sección Ejemplos con API -->
+    
     <section id="api" class="seccion">
         <div class="ejemplo-api">
             <h2>Ejemplo 1: Obtener Personaje Aleatorio (Promesas)</h2>
             <input type="number" id="personajeID" value="1" min="1">
             <button class="boton" onclick="obtenerPersonajeAleatoria()">Buscar Personaje</button>
+            <div id="loader" style="display:none; text-align:center; font-weight:bold; margin:10px 0;">
+                Cargando...
+            </div>
             <div id="simpsonQuoteResult" class="resultado-api"></div>
         </div>
 
@@ -79,12 +84,18 @@
             <h2>Ejemplo 2: Obtener Varios Personajes (Async/Await)</h2>
             <input type="number" id="numCitas" value="5" min="1" max="10">
             <button class="boton" onclick="obtenerVariasCitas()">Mostrar Personajes</button>
+            <div id="loader2" style="display:none; text-align:center; font-weight:bold; margin:10px 0;">
+                Cargando...
+            </div>
             <div id="simpsonQuotesResult" class="resultado-api"></div>
         </div>
 
         <div class="ejemplo-api">
             <h2>Ejemplo 3: Otro Personaje Aleatorio (Fetch + Then)</h2>
             <button class="boton" onclick="otraCitaAleatoria()">Generar Otro Personaje</button>
+            <div id="loader3" style="display:none; text-align:center; font-weight:bold; margin:10px 0;">
+                Cargando...
+            </div>
             <div id="randomSimpsonQuote" class="resultado-api"></div>
         </div>
 
@@ -92,6 +103,9 @@
             <h2>Ejemplo 4: Buscar Personaje por Nombre (Async/Await)</h2>
             <input type="text" id="simpsonCharacterName" placeholder="Nombre del Personaje" value="Homer">
             <button class="boton" onclick="citaPorPersonaje()">Buscar Personaje</button>
+            <div id="loader4" style="display:none; text-align:center; font-weight:bold; margin:10px 0;">
+                Cargando...
+            </div>
             <div id="simpsonCharacterResult" class="resultado-api"></div>
         </div>
     </section>
